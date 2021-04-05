@@ -1,4 +1,129 @@
-html, body {
-    padding: 0;
-    margin: 0;
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
+}
+body {
+  font-family: serif;
+  font-size: 1.6rem;
+  color: white;
+  background-color: rgb(62, 62, 83);
+}
+* {
+  box-sizing: border-box;
+}
+.header {
+  background-color: rgb(74, 74, 99);
+  padding: 5rem 0;
+}
+.container {
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.title {
+  font-family: sans-serif;
+}
+.title--h1 {
+  font-size: 7rem;
+}
+.title--h2 {
+  font-size: 5rem;
+}
+.title--h3 {
+  font-size: 3rem;
+}
+.main-menu {
+  text-align: right;
+  font-size: 2rem;
+}
+.main-menu__item {
+  display: inline;
+}
+.main-menu__link {
+  color: inherit;
+  text-decoration: none;
+}
+.main-menu__link:hover {
+  text-decoration: underline;
+}
+.experiences {
+  margin: 0 0 -17.5rem;
+  padding: 0;
+}
+.experiences__title {
+  margin-top: 0;
+}
+.experiences__item {
+  width: 25rem;
+  height: 25rem;
+  list-style: none;
+  display: inline-block;
+  background-color: rgb(78, 78, 105);
+  vertical-align: middle;
+  padding: 2rem;
+}
+.experiences__item--active {
+  background-color: rgb(33, 3, 53);
+  background-image: linear-gradient(
+    to top right,
+    rgb(115, 38, 167),
+    rgb(55, 140, 236)
+  );
+}
+.section {
+  padding: 5rem 0;
+}
+.section--dark {
+  background-color: rgb(51, 51, 73);
+}
+.section--photos {
+  padding-top: 20rem;
+}
+.button {
+  text-decoration: none;
+  color: inherit;
+  padding: 2rem;
+  border: 1px solid white;
+  font-size: 2rem;
+  font-family: sans-serif;
+  font-weight: 500;
+  margin-right: 1rem;
+  display: inline-block;
+}
+.button-row {
+  text-align: center;
+  margin-bottom: 8rem;
+}
+.button--social {
+  width: 15rem;
+}
+
+.button--facebook {
+  background-color: #1877f2;
+  border-color: #1877f2;
+}
+.button--instagram {
+  background-image: linear-gradient(to top right, #ffa140, #fc3572, #a23cad);
+  border-color: transparent;
+}
+.button--linkedin {
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+}
+.button--twitch {
+  background-color: #772ce8;
+  border-color: #772ce8;
+}
+.button--youtube {
+  background-color: #f00;
+  border-color: #f00;
+}
+.footer {
+  margin-top: 10rem;
+}
+.footer__text {
+  font-size: 3rem;
+  text-align: center;
 }
