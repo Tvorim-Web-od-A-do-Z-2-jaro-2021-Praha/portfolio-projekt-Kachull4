@@ -1,12 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Testovací titulek</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <nav class="main-menu">
+          <ul class="main-menu__list">
+            <li class="main-menu__item">
+              <a class="main-menu__link" href="#">About</a>
+            </li>
+            <li class="main-menu__item">
+              <a class="main-menu__link" href="#">Experiences</a>
+            </li>
+            <li class="main-menu__item">
+              <a class="main-menu__link" href="#">Photos</a>
+            </li>
+            <li class="main-menu__item">
+              <a class="main-menu__link" href="#">Contact</a>
+            </li>
+          </ul>
+        </nav>
+        <h1 class="title title--h1">Kateřina Beranová</h1>
+      </div>
+    </header>
+    <section class="section section--light">
+      <div class="container">
+        <h2 class="title title--h2">Experiences</h2>
+        <ul class="experiences">
+          <li class="experiences__item experiences__item--active">
+            <h3 class="experiences__title title title--h3">
+              Generali Česká pojišťovna
+            </h3>
+            <p class="experiences__position">Specialista prodeje pojištění</p>
+            <p class="experiences__years">2019 - present</p>
+          </li>
+          <li class="experiences__item">
+            <h3 class="experiences__title title title--h3">
+              CZC
+            </h3>
+            <p class="experiences__position">Prodej a servis elektroniky</p>
+            <p class="experiences__years">2018 - 2019</p>
+          </li>
+          <li class="experiences__item">
+            <h3 class="experiences__title title title--h3">
+              PetCenter
+            </h3>
+            <p class="experiences__position">Asistent prodeje</p>
+            <p class="experiences__years">2017 - 2018</p>
+          </li>
+          <li class="experiences__item">
+            <h3 class="experiences__title title title--h3">Gymnázium Dr. Josefa Pekaře</h3>
+            <p class="experiences__position">maturita</p>
+            <p class="experiences__years">2010 - 2014</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="section section--photos section--dark">
+      <div class="container"><h2 class="title title--h2">Photos</h2></div>
+    </section>
+    <section class="section section--light">
+      <div class="container">
+        <h2 class="title title--h2">Contacts</h2>
+        <p class="button-row"><a class="button" href="#">Get in touch</a></p>
+        <p class="button-row">
+          <a class="button button--social button--facebook" href="#"
+            >Facebook</a
+          >
+          <a class="button button--social button--instagram" href="#"
+            >Instagram</a
+          >
+          <a class="button button--social button--linkedin" href="#"
+            >LinkedIn</a
+          >
+          <a class="button button--social button--twitch" href="#">Twitch</a>
+          <a class="button button--social button--youtube" href="#">YouTube</a>
+        </p>
+      </div>
+    </section>
+    <footer class="footer">
+      <p class="footer__text">Thanks for scrolling!</p>
+    </footer>
+  </body>
 </html>
