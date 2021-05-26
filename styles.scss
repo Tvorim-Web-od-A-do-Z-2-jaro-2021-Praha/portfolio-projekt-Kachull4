@@ -61,6 +61,12 @@ body {
     font-size: 3rem;
   }
 }
+@keyframes signature-animation {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 .header {
   background-color: $backgroundColorDark;
   padding: $spacingMedium 0 0;
@@ -99,6 +105,19 @@ body {
     grid-area: description;
     align-self: end;
     padding-bottom: $spacingMedium;
+
+    .title {
+      font: inherit;
+    }
+  }
+  &__signature {
+    width: 25rem;
+
+    #signature {
+      stroke-dasharray: 1778;
+      stroke-dashoffset: 1778;
+      animation: signature-animation 3s ease forwards;
+    }
   }
 }
 @include medium() {
@@ -140,6 +159,11 @@ body {
   }
   .main-menu {
     text-align: center;
+
+    &__item {
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
   }
 }
 .experiences {
@@ -162,6 +186,28 @@ body {
     font-size: 2rem;
     aspect-ratio: 1;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  &__icon {
+    display: block;
+    margin-bottom: 1rem;
+    width: auto;
+
+    &--gcp {
+      height: 3rem;
+    }
+    &--czc {
+      height: 2rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    &--pet {
+      height: 3rem;
+    }
+    &--graduation {
+      height: 4rem;
+      margin-top: -0.5rem;
+      margin-bottom: 0.5rem;
+    }
   }
 }
 @media (max-width: 80rem) {
@@ -192,10 +238,27 @@ body {
   &--photos {
     padding-top: 20rem;
   }
+  /*&__contacts {
+    background-image: url(talk-background.svg);
+  }*/
 }
+
 .button-row {
+  position: relative;
   text-align: center;
   margin-bottom: 8rem;
+  z-index: 0;
+}
+@keyframes pulse-animation {
+  from {
+    height: 0;
+    width: 0;
+  }
+  to {
+    height: 21rem;
+    width: 21rem;
+    opacity: 0;
+  }
 }
 .button {
   text-decoration: none;
@@ -208,11 +271,54 @@ body {
   margin-right: 1rem;
   margin-bottom: 1rem;
   display: inline-block;
+  border-radius: 10rem;
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 6rem;
+    left: -6.5rem;
+    top: 0;
+    background: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0.315),
+      transparent
+    );
+    transition: left 0.8s;
+    transform: skewx(-15deg);
+  }
+  &:hover::after {
+    left: calc(100% + 0.5rem);
+  }
 
   &--touch {
     color: black;
+    background-color: #fff;
+    position: relative;
+    transition: box-shadow 1s;
+    overflow: visible;
+    &::after {
+      display: none;
+    }
+    &:hover {
+      box-shadow: 0 0 3rem rgba(0, 0, 0, 0.274);
+    }
   }
-
+  &__pulse {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 0.5rem solid rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    animation: 1.5s pulse-animation ease infinite;
+    pointer-events: none;
+  }
   &--social {
     width: 15rem;
   }
@@ -236,15 +342,21 @@ body {
     background-color: #f00;
     border-color: #f00;
   }
+  &__icon {
+    display: inline-block;
+    vertical-align: middle;
+    height: 1.5em;
+    margin: -0.5em 0.3em -0.3em 0;
+  }
 }
 .footer {
   background-color: $backgroundColorDark;
   padding-top: 4rem;
   padding-bottom: 4rem;
+  text-align: center;
 
   &__text {
     font-size: 3rem;
-    text-align: center;
   }
 }
 .gallery {
@@ -264,4 +376,27 @@ body {
     height: 100%;
     object-fit: cover;
   }
+}
+
+@keyframes circle-animation {
+  from {
+    stroke-dasharray: 0 200;
+  }
+  to {
+    stroke-dasharray: 200 0;
+  }
+}
+@keyframes copy-animation {
+  from {
+    stroke-dasharray: 0 100;
+  }
+  to {
+    stroke-dasharray: 37 33;
+  }
+}
+.circle-jedna {
+  animation: circle-animation 2s ease infinite;
+}
+.circle-dva {
+  animation: copy-animation 2s ease infinite;
 }
