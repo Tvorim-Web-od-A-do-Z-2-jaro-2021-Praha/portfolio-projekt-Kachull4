@@ -6,8 +6,8 @@ $breakpointSmall: 50rem;
 $breakpointMedium: 93rem;
 $spacingSmall: 2rem;
 $spacingMedium: 5rem;
-$fontFamilyBase: serif;
-$fontFamilyHeddings: sans-serif;
+$fontFamilyBase: "Arbutus Slab", serif;
+$fontFamilyHeddings: "Montserrat Alternates", sans-serif;
 
 @mixin grid($minWidth) {
   display: grid;
@@ -39,6 +39,9 @@ body {
 * {
   box-sizing: border-box;
 }
+p {
+  margin: 0;
+}
 .container {
   max-width: 120rem;
   margin-left: auto;
@@ -60,6 +63,9 @@ body {
   &--h3 {
     font-size: 3rem;
   }
+  &--h4 {
+    margin-bottom: 2rem;
+  }
 }
 @keyframes signature-animation {
   to {
@@ -76,9 +82,9 @@ body {
   &__container {
     display: grid;
     grid-template-columns: 1fr auto;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 1fr;
     grid-template-areas:
-      "photo menu"
+      "menu menu"
       "photo description";
     min-height: 100vh;
   }
@@ -109,6 +115,11 @@ body {
     .title {
       font: inherit;
     }
+
+    @include small() {
+      padding-right: 3rem;
+      padding-left: 3rem;
+    }
   }
   &__signature {
     width: 25rem;
@@ -118,6 +129,15 @@ body {
       stroke-dashoffset: 1778;
       animation: signature-animation 3s ease forwards;
     }
+
+    @include small() {
+      width: 70%;
+    }
+  }
+}
+@include small() {
+  .title--h1 {
+    font-size: 12vw;
   }
 }
 @include medium() {
@@ -127,6 +147,7 @@ body {
 }
 .main-menu {
   text-align: right;
+  white-space: nowrap;
   font-size: 2.5rem;
   font-family: $fontFamilyHeddings;
   grid-area: menu;
@@ -184,7 +205,6 @@ body {
     vertical-align: middle;
     padding: $spacingSmall;
     font-size: 2rem;
-    aspect-ratio: 1;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
   &__icon {
@@ -221,9 +241,22 @@ body {
 @include small() {
   .experiences {
     grid-template-columns: 1fr;
+
+    &__item {
+      aspect-ratio: 3/2;
+    }
   }
-  .experiences__item {
-    aspect-ratio: 3/2;
+  .main-menu {
+    &__list {
+      display: flex;
+      max-width: 100vw;
+      overflow: scroll;
+      margin-left: -$spacingMedium;
+      padding: 0 $spacingSmall;
+    }
+    &__link {
+      flex: 0 0 auto;
+    }
   }
 }
 .section {
@@ -235,14 +268,58 @@ body {
   &--light {
     background-color: $colorLight;
   }
-  &--photos {
-    padding-top: 20rem;
+  &--skills {
+    color: $backgroundColorDark;
+    padding-top: 15rem;
+  }
+  &--work {
+    color: #000;
   }
   /*&__contacts {
     background-image: url(talk-background.svg);
   }*/
 }
+.skills {
+  &__item {
+    margin-bottom: 18px;
+  }
+}
+@keyframes progress {
+  from {
+    width: 0;
+    height: 10px;
+  }
+  to {
+    width: 100;
+    height: 10px;
+  }
+}
+.progress {
+  border: 2px solid $backgroundColorDark;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 10px;
 
+  &__bar {
+    height: 10px;
+    border-radius: 10px;
+    background: #9b9b9b;
+  }
+  &__percentage {
+    height: 10px;
+    border-radius: 2rem;
+    vertical-align: middle;
+    align-self: center;
+    background-image: linear-gradient(
+      to right,
+      $backgroundColorDark,
+      $textAndBorderColor
+    );
+  }
+}
+.is-visible {
+  animation: 2s progress ease;
+}
 .button-row {
   position: relative;
   text-align: center;
@@ -375,6 +452,9 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  @include small() {
+    grid-template-columns: 1fr;
   }
 }
 
